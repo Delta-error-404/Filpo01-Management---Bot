@@ -1,0 +1,35 @@
+{
+  "subscriptions": [
+    {
+      "id": 1,
+      "type": "twitch",
+      "username": "Filpo01",
+      "channel_id": 1534125207726330205,
+      "last_id": "318165292773"
+    },
+    {
+      "id": 2,
+      "type": "tt",
+      "username": "filpo.01",
+      "channel_id": 1534209505737441361,
+      "last_id": null
+    },
+    {
+      "id": 3,
+      "type": "yt",
+      "channel_id": 1534125207726330204,
+      "last_id": null,
+      "channel_id_yt": "Filpo01"
+    }
+  ],
+  "twitch_token": {
+    "access_token": "sm0apvwo7fqi6duuizxenvvbb6kx80",
+    "expires_at": 1791470583.7011232
+  },
+  "panel_roles": {
+    "1534125207223140352": {
+      "twitch": 1535604905174114314,
+      "giveaway": 1535604944017563729
+    }
+  }
+}

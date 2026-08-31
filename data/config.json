@@ -1,0 +1,20 @@
+{
+  "admin_roles": [],
+  "welcome_role_id": 1534125207223140353,
+  "ticket_show_role_id": 1534125207223140355,
+  "log_channel_id": 1534125208003284998,
+  "hello_message": {
+    "text": "Welcome {user} auf dem {server} Server. Du bist Mitglied {count}. Bitte Akzeptiere das Regelwerk.",
+    "channel_id": 1534125207726330199
+  },
+  "reaction_roles": {
+    "1534137494524924045": {
+      "✅": 1534218317781405869
+    }
+  },
+  "voice_creator": {
+    "category_id": 1534125208003284994,
+    "channel_id": 1534978800151036045,
+    "name_template": "{user} Talk"
+  }
+}

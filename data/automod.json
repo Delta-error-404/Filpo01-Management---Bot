@@ -1,0 +1,97 @@
+{
+  "enabled": true,
+  "rules": [
+    {
+      "words": [
+        "hurensohn",
+        "wickser",
+        "bastard",
+        "halt deine fresse",
+        "leck eier",
+        "ich mach dich kal",
+        "halts maul"
+      ],
+      "action": "timeout",
+      "duration": 10
+    },
+    {
+      "words": [
+        "hurensohn",
+        "wickser",
+        "bastard",
+        "halt deine fresse",
+        "leck eier",
+        "ich mach dich kal",
+        "halts maul"
+      ],
+      "action": "delete",
+      "duration": 0
+    },
+    {
+      "words": [
+        "hurensohn",
+        "wickser",
+        "bastard",
+        "halt deine fresse",
+        "leck eier",
+        "ich mach dich kal",
+        "halts maul"
+      ],
+      "action": "warn",
+      "duration": 0
+    }
+  ],
+  "whitelist_roles": [],
+  "filters": {
+    "links": {
+      "enabled": true,
+      "action": "delete",
+      "duration": 0,
+      "allowed_domains": [
+        "www.tiktok.com",
+        "youtube.com",
+        "www.twitch.tv"
+      ],
+      "actions": [
+        "delete"
+      ]
+    },
+    "invites": {
+      "enabled": true,
+      "action": "timeout",
+      "duration": 5,
+      "actions": [
+        "timeout"
+      ]
+    },
+    "caps": {
+      "enabled": true,
+      "threshold": 70,
+      "min_length": 8,
+      "action": "delete",
+      "duration": 0,
+      "actions": [
+        "delete"
+      ]
+    },
+    "spam": {
+      "enabled": false,
+      "max_messages": 5,
+      "seconds": 5,
+      "action": "timeout",
+      "duration": 10,
+      "actions": [
+        "timeout"
+      ]
+    },
+    "mentions": {
+      "enabled": true,
+      "max_mentions": 5,
+      "action": "warn",
+      "duration": 0,
+      "actions": [
+        "warn"
+      ]
+    }
+  }
+}

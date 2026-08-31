@@ -1,0 +1,104 @@
+{
+  "panels": [
+    {
+      "channel_id": 1534130068446777515,
+      "message_id": 1534947580046344242,
+      "dropdown_name": "Ticket_1534125207223140352_4",
+      "categories": [
+        {
+          "name": "🎮 General Support",
+          "support_role_id": null,
+          "priority": "medium",
+          "description": "Allgemeine Fragen & Hilfe",
+          "emoji": "🎫",
+          "auto_close_hours": 0
+        },
+        {
+          "name": "🐛 Bug Report",
+          "support_role_id": null,
+          "priority": "high",
+          "description": "Fehler melden",
+          "emoji": "🎫",
+          "auto_close_hours": 0
+        },
+        {
+          "name": "💳 Billing",
+          "support_role_id": null,
+          "priority": "high",
+          "description": "Zahlungsprobleme",
+          "emoji": "🎫",
+          "auto_close_hours": 0
+        },
+        {
+          "name": "⚙️ Technisch",
+          "support_role_id": null,
+          "priority": "medium",
+          "description": "Technische Probleme",
+          "emoji": "🎫",
+          "auto_close_hours": 0
+        }
+      ],
+      "panel_id": "Ticket_1534125207223140352_4"
+    },
+    {
+      "panel_id": "Create a Ticket",
+      "channel_id": 1534130068446777515,
+      "message_id": 1534963500789661767,
+      "options": [
+        "Giveaway-Winner",
+        "Bug",
+        "Vorschlag",
+        "Support",
+        "Bewerbung"
+      ]
+    },
+    {
+      "panel_id": "Buy Schematic",
+      "channel_id": 1534125208003284993,
+      "message_id": 1534974483255791759,
+      "options": [
+        "Buy",
+        "Fragen"
+      ]
+    },
+    {
+      "panel_id": "test",
+      "channel_id": 1534946600638615673,
+      "message_id": 1538945055019110403,
+      "options": [
+        "test"
+      ]
+    }
+  ],
+  "active_tickets": [],
+  "counter": 3,
+  "closed_tickets": [
+    {
+      "channel_id": 1534963633220489408,
+      "owner_id": 1505657792432967731,
+      "category": "Giveaway-Winner",
+      "panel_id": "Create a Ticket",
+      "claimed_by": null,
+      "created_at": "2026-08-06T16:37:36.034310+00:00",
+      "updated_at": "2026-08-06T16:37:51.014943+00:00"
+    },
+    {
+      "channel_id": 1534964072028573768,
+      "owner_id": 1497635838396338358,
+      "category": "Bewerbung",
+      "panel_id": "Create a Ticket",
+      "claimed_by": null,
+      "created_at": "2026-08-06T16:39:20.669605+00:00",
+      "updated_at": "2026-08-06T16:40:08.059403+00:00"
+    },
+    {
+      "channel_id": 1538945067778187306,
+      "owner_id": 1505657792432967731,
+      "category": "test",
+      "panel_id": "test",
+      "claimed_by": null,
+      "created_at": "2026-08-17T16:18:25.145883+00:00",
+      "updated_at": "2026-08-17T16:18:25.145895+00:00"
+    }
+  ]
+}
