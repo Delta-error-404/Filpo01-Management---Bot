@@ -110,6 +110,9 @@ class FilpoBot(commands.Bot):
         logger.info(f"Eingeloggt als {self.user} (ID: {self.user.id})")
         logger.info(f"Verbunden mit {len(self.guilds)} Guild(s)")
         
+        # Warten bis die Channels aller Guilds im Cache geladen sind,
+        # sonst wuerden Tickets faelschlich als geloescht markiert.
+        await asyncio.sleep(3)
         await self.sync_tickets_on_startup()
 
     async def sync_tickets_on_startup(self):
@@ -117,15 +120,26 @@ class FilpoBot(commands.Bot):
         active_tickets = tickets_data.get("active_tickets", [])
         
         valid = []
+        stale = []
         for ticket in active_tickets:
             channel_id = ticket.get("channel_id")
             channel = self.get_channel(channel_id)
             if channel:
                 valid.append(ticket)
             else:
-                logger.warning(f"Ticket-Channel {channel_id} nicht mehr vorhanden, entferne aus DB")
+                # Falls der Channel nicht im Cache ist (evtl. noch ladend),
+                # pruefe per API nach bevor wir loeschen.
+                try:
+                    ch = await self.fetch_channel(channel_id)
+                    valid.append(ticket)
+                except discord.NotFound:
+                    logger.warning(f"Ticket-Channel {channel_id} existiert nicht mehr, entferne aus DB")
+                    stale.append(ticket)
+                except (discord.Forbidden, discord.HTTPException):
+                    # Kein Zugriff -> Ticket behalten, nicht loeschen
+                    valid.append(ticket)
         
-        if len(valid) != len(active_tickets):
+        if stale:
             data = await tickets_db.get()
             data["active_tickets"] = valid
             await tickets_db.save(data)
