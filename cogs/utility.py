@@ -43,9 +43,12 @@ class UtilityCog(commands.Cog):
 
         await msg.edit(content="", embed=embed)
 
-    @app_commands.command(name="sendmessage", description="Sende eine Nachricht als Bot in den aktuellen Channel (nur Owner/Dev)")
-    @app_commands.describe(message="Nachricht, die als Bot gesendet werden soll")
-    async def sendmessage(self, interaction: discord.Interaction, message: str):
+    @app_commands.command(name="sendmessage", description="Sende eine Nachricht als Bot in den aktuellen Channel oder als DM an einen User (nur Owner/Dev)")
+    @app_commands.describe(
+        message="Nachricht, die als Bot gesendet werden soll",
+        user="Optional: User, dem die Nachricht als DM gesendet werden soll"
+    )
+    async def sendmessage(self, interaction: discord.Interaction, message: str, user: discord.User = None):
         if not (is_owner(interaction.user) or is_dev(interaction.user)):
             await interaction.response.send_message(
                 embed=error_embed("Nur der Bot-Besitzer oder ein Entwickler kann diesen Befehl nutzen."),
@@ -56,6 +59,29 @@ class UtilityCog(commands.Cog):
         if not message.strip():
             await interaction.response.send_message(
                 embed=error_embed("Nachricht darf nicht leer sein"),
+                ephemeral=True
+            )
+            return
+
+        if user:
+            # DM an den User senden
+            try:
+                await user.send(message)
+            except discord.Forbidden:
+                await interaction.response.send_message(
+                    embed=error_embed("Ich kann diesem User keine DM senden (DMs deaktiviert oder Bot blockiert)."),
+                    ephemeral=True
+                )
+                return
+            except discord.HTTPException as e:
+                await interaction.response.send_message(
+                    embed=error_embed(f"Fehler beim DM-Senden: {e}"),
+                    ephemeral=True
+                )
+                return
+
+            await interaction.response.send_message(
+                embed=success_embed(f"DM gesendet an {user.mention} ({user.id})"),
                 ephemeral=True
             )
             return
