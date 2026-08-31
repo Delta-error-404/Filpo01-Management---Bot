@@ -1,8 +1,5 @@
 import os
-import sys
 import asyncio
-import subprocess
-from pathlib import Path
 
 import discord
 from discord.ext import commands
@@ -52,21 +49,6 @@ class AdminCog(commands.Cog):
         )
         await asyncio.sleep(0.5)
 
-        script = Path(sys.argv[0]).resolve()
-        if script.suffix != ".py" or not script.exists():
-            script = Path(__file__).resolve().parent.parent / "bot.py"
-
-        log_dir = script.parent / "data"
-        log_dir.mkdir(exist_ok=True)
-        stdout = open(log_dir / "bot_stdout.log", "a", encoding="utf-8")
-        stderr = open(log_dir / "bot_stderr.log", "a", encoding="utf-8")
-
-        kwargs = {}
-        if os.name == "nt":
-            kwargs["creationflags"] = subprocess.DETACHED_PROCESS | subprocess.CREATE_NO_WINDOW
-        else:
-            kwargs["start_new_session"] = True
-
         lock_file = getattr(self.bot, "_lock_file", None)
         if lock_file is not None:
             try:
@@ -74,17 +56,9 @@ class AdminCog(commands.Cog):
             except OSError:
                 pass
 
-        subprocess.Popen(
-            [sys.executable, str(script)],
-            cwd=str(script.parent),
-            stdin=subprocess.DEVNULL,
-            stdout=stdout,
-            stderr=stderr,
-            close_fds=True,
-            **kwargs
-        )
-
-        await asyncio.sleep(0.5)
+        # Den Prozess sauber beenden. Der Host (Pterodactyl/Wispbyte)
+        # startet den Bot automatisch neu. So entstehen keine Doppel-Prozesse
+        # und Datenbanken bleiben konsistent.
         try:
             await asyncio.wait_for(self.bot.close(), timeout=5)
         except Exception:
