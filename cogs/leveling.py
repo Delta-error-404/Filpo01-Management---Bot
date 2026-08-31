@@ -76,7 +76,7 @@ class LevelingCog(commands.Cog):
         new_level = level_from_xp(entry["xp"])
 
         def _save(d):
-            d["users"][gid][uid] = entry
+            d.setdefault("users", {}).setdefault(gid, {})[uid] = entry
             return d
         await leveling_db.modify(_save)
 
