@@ -1,0 +1,14 @@
+13:05:59 | WARNING  | discord.client: PyNaCl is not installed, voice will NOT be supported
+13:05:59 | WARNING  | discord.client: davey is not installed, voice will NOT be supported
+[2026-08-07 13:05:59] [INFO    ] discord.client: logging in using static token
+13:05:59 | INFO     | discord.client: logging in using static token
+13:06:00 | INFO     | bot: Slash-Commands für Test-Guild 1534125207223140352 synchronisiert (sofort sichtbar)
+13:06:00 | INFO     | bot: Datenbanken geladen
+[2026-08-07 13:06:01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ee24737d257e2f6a4885f538d0b21d69).
+13:06:01 | INFO     | discord.gateway: Shard ID None has connected to Gateway (Session ID: ee24737d257e2f6a4885f538d0b21d69).
+13:06:03 | INFO     | bot: Eingeloggt als Filpo01 Community Bot#1208 (ID: 1534935975954747566)
+13:06:03 | INFO     | bot: Verbunden mit 1 Guild(s)
+[2026-08-07 13:46:04] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ee24737d257e2f6a4885f538d0b21d69.
+13:46:04 | INFO     | discord.gateway: Shard ID None has successfully RESUMED session ee24737d257e2f6a4885f538d0b21d69.
+[2026-08-07 14:29:26] [INFO    ] discord.gateway: Shard ID None has successfully RESUMED session ee24737d257e2f6a4885f538d0b21d69.
+14:29:26 | INFO     | discord.gateway: Shard ID None has successfully RESUMED session ee24737d257e2f6a4885f538d0b21d69.
