@@ -12,6 +12,7 @@ from .storage import (
     leveling_db,
     counting_db,
     anti_nuke_db,
+    embed_templates_db,
 )
 
 __all__ = [
@@ -28,4 +29,5 @@ __all__ = [
     "leveling_db",
     "counting_db",
     "anti_nuke_db",
+    "embed_templates_db",
 ]

@@ -223,6 +223,10 @@ counting_db = JSONManager[dict]("counting.json", {
     "channels": {}
 })
 
+embed_templates_db = JSONManager[dict]("embed_templates.json", {
+    "templates": []
+})
+
 anti_nuke_db = JSONManager[dict]("anti_nuke.json", {
     "enabled": True,
     "max_deletes": 5,
